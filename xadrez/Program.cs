@@ -4,13 +4,11 @@ using xadrez.ChessLayer;
 
 try
 {
-    Board board = new Board(12, 12);
+    Board board = new Board(8, 8);
 
-    board.AddPiece(new King(board, Color.White), new Position(1, 4));
-    board.AddPiece(new Hook(board, Color.Black), new Position(23, 2));
-    board.AddPiece(new King(board, Color.White), new Position(7, 3));
+    var chessPosition = new ChessPosition('f', 6);
 
-    Screen.PrintBoard(board);
+    Console.WriteLine(chessPosition.ToPosition(board));
 }
 catch(Exception ex)
 {
