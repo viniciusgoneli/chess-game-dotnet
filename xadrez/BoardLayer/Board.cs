@@ -1,5 +1,5 @@
 ﻿using System;
-namespace xadrez.Board
+namespace xadrez.BoardLayer
 {
 	public class Board
 	{
@@ -12,6 +12,11 @@ namespace xadrez.Board
 			Rows = rows;
 			Columns = columns;
 			Pieces = new Piece[rows, columns]; 
+		}
+
+		public Piece GetPiece(int row, int column)
+		{
+			return Pieces[row, column];
 		}
 	}
 }

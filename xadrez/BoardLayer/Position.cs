@@ -1,5 +1,6 @@
 ﻿using System;
-namespace xadrez.Board
+
+namespace xadrez.BoardLayer
 {
 	public class Position
 	{

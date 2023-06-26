@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Board\" />
+    <None Remove="BoardLayer\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Board\" />
+    <Folder Include="BoardLayer\" />
   </ItemGroup>
 </Project>

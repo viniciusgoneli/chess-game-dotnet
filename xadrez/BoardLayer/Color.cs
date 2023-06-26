@@ -1,5 +1,5 @@
 ﻿using System;
-namespace xadrez.Board
+namespace xadrez.BoardLayer
 {
 	public enum Color
     {
