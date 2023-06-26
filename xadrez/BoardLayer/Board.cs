@@ -18,6 +18,11 @@ namespace xadrez.BoardLayer
 		{
 			return Pieces[row, column];
 		}
+
+		public void AddPiece(Piece piece, Position position)
+		{
+			Pieces[position.Row, position.Column] = piece;
+		}
 	}
 }
 

@@ -9,8 +9,10 @@
 
   <ItemGroup>
     <None Remove="BoardLayer\" />
+    <None Remove="ChessLayer\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BoardLayer\" />
+    <Folder Include="ChessLayer\" />
   </ItemGroup>
 </Project>
