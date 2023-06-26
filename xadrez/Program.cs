@@ -1,6 +1,3 @@
 ﻿using xadrez.Board;
 
-Position pos = new Position(1, 3);
-
-Console.WriteLine(pos);
-
+Board board = new Board(12, 12);
