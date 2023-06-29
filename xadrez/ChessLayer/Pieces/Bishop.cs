@@ -3,16 +3,16 @@ using xadrez.BoardLayer;
 
 namespace xadrez.ChessLayer
 {
-	public class Hook : Piece
+	public class Bishop : ChessPiece
 	{
 
-		public Hook(Board board, Color color) : base(board, color)
+		public Bishop(Board board, Color color) : base(board, color)
 		{
 		}
 
         public override string ToString()
         {
-            return "H";
+            return "B";
         }
     }
 }
