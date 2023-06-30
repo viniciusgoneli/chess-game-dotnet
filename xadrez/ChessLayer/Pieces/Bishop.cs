@@ -14,6 +14,49 @@ namespace xadrez.ChessLayer
         {
             return "B";
         }
+
+        public override bool[,] GetPossibleMoves()
+        {
+            bool[,] mat = new bool[Board.Rows, Board.Columns];
+
+            Position p = new Position(Position.Row - 1, Position.Column - 1);
+            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsPositionOccupied(p))
+            {
+                mat[p.Row, p.Column] = true;
+
+                p.SetValues(p.Row - 1, p.Column - 1);
+            }
+            MarkOpponentPieceAsPossibleMoveIfExists(p, mat);
+
+            p = new Position(Position.Row - 1, Position.Column + 1);
+            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsPositionOccupied(p))
+            {
+                mat[p.Row, p.Column] = true;
+
+                p.SetValues(p.Row - 1, p.Column + 1);
+            }
+            MarkOpponentPieceAsPossibleMoveIfExists(p, mat);
+
+            p = new Position(Position.Row + 1, Position.Column + 1);
+            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsPositionOccupied(p))
+            {
+                mat[p.Row, p.Column] = true;
+
+                p.SetValues(p.Row + 1, p.Column + 1);
+            }
+            MarkOpponentPieceAsPossibleMoveIfExists(p, mat);
+
+            p = new Position(Position.Row + 1, Position.Column - 1);
+            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsPositionOccupied(p))
+            {
+                mat[p.Row, p.Column] = true;
+
+                p.SetValues(p.Row + 1, p.Column - 1);
+            }
+            MarkOpponentPieceAsPossibleMoveIfExists(p, mat);
+
+            return mat;
+        }
     }
 }
 
