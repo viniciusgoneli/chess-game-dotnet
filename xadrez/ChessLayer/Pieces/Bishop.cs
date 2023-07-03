@@ -20,7 +20,7 @@ namespace xadrez.ChessLayer
             bool[,] mat = new bool[Board.Rows, Board.Columns];
 
             Position p = new Position(Position.Row - 1, Position.Column - 1);
-            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsPositionOccupied(p))
+            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsThereAPiece(p))
             {
                 mat[p.Row, p.Column] = true;
 
@@ -29,7 +29,7 @@ namespace xadrez.ChessLayer
             MarkOpponentPieceAsPossibleMoveIfExists(p, mat);
 
             p = new Position(Position.Row - 1, Position.Column + 1);
-            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsPositionOccupied(p))
+            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsThereAPiece(p))
             {
                 mat[p.Row, p.Column] = true;
 
@@ -38,7 +38,7 @@ namespace xadrez.ChessLayer
             MarkOpponentPieceAsPossibleMoveIfExists(p, mat);
 
             p = new Position(Position.Row + 1, Position.Column + 1);
-            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsPositionOccupied(p))
+            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsThereAPiece(p))
             {
                 mat[p.Row, p.Column] = true;
 
@@ -47,7 +47,7 @@ namespace xadrez.ChessLayer
             MarkOpponentPieceAsPossibleMoveIfExists(p, mat);
 
             p = new Position(Position.Row + 1, Position.Column - 1);
-            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsPositionOccupied(p))
+            while (Board.CheckPositionIsInsideBounds(p) && !Board.IsThereAPiece(p))
             {
                 mat[p.Row, p.Column] = true;
 
