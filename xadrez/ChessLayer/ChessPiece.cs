@@ -11,7 +11,7 @@ namespace xadrez.ChessLayer
 
         protected void MarkOpponentPieceAsPossibleMoveIfExists(Position p, bool[,] mat)
         {
-            if (Board.CheckPositionIsInsideBounds(p) && Board.IsPositionOccupied(p)
+            if (Board.CheckPositionIsInsideBounds(p) && Board.IsThereAPiece(p)
                 && Board.GetPiece(p).Color != Color)
             {
                 mat[p.Row, p.Column] = true;
