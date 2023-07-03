@@ -24,12 +24,12 @@ namespace xadrez.ChessLayer
             int dir = Color == Color.White ? 1 : -1;
 
             p.SetValues(Position.Row - 1 * dir, Position.Column);
-            if (Board.CheckPositionIsInsideBounds(p) && !Board.IsPositionOccupied(p))
+            if (Board.CheckPositionIsInsideBounds(p) && !Board.IsThereAPiece(p))
             {
                 mat[p.Row, p.Column] = true;
 
                 p.SetValues(p.Row - 1 * dir, p.Column);
-                if(MovesCount == 0 && !Board.IsPositionOccupied(p))
+                if(MovesCount == 0 && !Board.IsThereAPiece(p))
                 {
                     mat[p.Row, p.Column] = true;
                 }
