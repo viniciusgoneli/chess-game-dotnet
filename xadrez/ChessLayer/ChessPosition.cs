@@ -14,10 +14,10 @@ namespace xadrez.ChessLayer
             Row = row;
         }
 
-        public Position ToPosition(Board board)
+        public Position ToPosition()
 		{
-			return new Position(board.Rows - Row, Column - 'a');
+			return new Position(8 - Row, Column - 'a');
 		}
-	}
+    }
 }
 
