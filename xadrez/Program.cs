@@ -2,17 +2,55 @@
 using xadrez.BoardLayer;
 using xadrez.ChessLayer;
 
-try
+
+ChessMatch chessMatch = new ChessMatch();
+
+while (true)
 {
-    Board board = new Board(8, 8);
+    try
+    {
+        Screen.Clear();
+        Screen.PrintMatch(chessMatch);
 
-    var chessPosition = new ChessPosition('f', 6);
+        Console.Write("Source: ");
+        ChessPosition source = Screen.ConvertInputToChessPosition(Console.ReadLine());
 
-    Console.WriteLine(chessPosition.ToPosition(board));
+        chessMatch.validateSourcePosition(source.ToPosition());
+
+        Screen.Clear();
+        Screen.PrintBoard(chessMatch.GetPieces(), chessMatch.GetPossibleMoves(source));
+
+        Console.Write("Target: ");
+        ChessPosition target = Screen.ConvertInputToChessPosition(Console.ReadLine());
+
+        chessMatch.validateTargetPosition(source.ToPosition(), target.ToPosition());
+
+        ChessPiece? capturedPiece = chessMatch.MovePiece(source, target);
+
+        if (capturedPiece != null)
+        {
+            chessMatch.GetCapturedPieces().Add(capturedPiece);
+            chessMatch.GetPiecesOnTheBoard().Remove(capturedPiece);
+        }
+
+        bool isCheck = chessMatch.TestCheck(chessMatch.GetOpponent());
+        chessMatch.isCheck = isCheck;
+
+        if (isCheck) {
+            bool isCheckMate = chessMatch.TestCheckMate(chessMatch.GetOpponent());
+            chessMatch.isCheckMate = isCheckMate;
+        }
+
+        chessMatch.PassToNextTurn();
+    }
+    catch (ChessException ex)
+    {
+        Console.WriteLine(ex.Message);
+        Console.ReadLine();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+        Console.ReadLine();
+    }
 }
-catch(Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
-
-Console.ReadLine();
